@@ -27,7 +27,7 @@ public class MultiPartRequest extends Request<String>{
     private HttpEntity mHttpEntity;
 
     public MultiPartRequest(Response.ErrorListener errorListener,Response.Listener listener, File file) {
-        super(Request.Method.POST, EndpointAPI.ANDEVINDO, errorListener);
+        super(Request.Method.POST, EndpointAPI.upload_file, errorListener);
         mListener = listener;
         mHttpEntity = buildMultipartEntity(file);
 

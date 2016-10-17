@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="140dp" >
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_height="130dp"
+        card_view:cardCornerRadius="4dp"
+        card_view:elevation="14dp"
+        android:background="@color/md_btn_selected">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/foto_penulis"
+                android:src="@drawable/boy"
+                android:layout_height="80dp"
+                android:layout_width="80dp"
+                app:riv_corner_radius="50dip"
+                app:riv_border_width="4dip"
+                app:riv_border_color="@color/colorPrimaryDark"
+                app:riv_mutate_background="true"
+                app:riv_tile_mode="repeat"
+                app:riv_oval="true"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/nama_penulis"
+                android:text="Teddy Puguh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/foto_penulis"
+                android:layout_toEndOf="@+id/foto_penulis">
+            </TextView>
+
+            <TextView
+                android:id="@+id/size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Size : xxxx MB"
+                android:layout_alignBottom="@+id/foto_penulis"
+                android:layout_toRightOf="@+id/foto_penulis"
+                android:layout_toEndOf="@+id/foto_penulis">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="234278"
+                android:textSize="15dp"
+                android:id="@+id/total_download"
+                android:layout_alignParentBottom="true"
+                android:layout_alignRight="@+id/simpan_file"
+                android:layout_alignEnd="@+id/simpan_file" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/lihat_file"
+                android:src="@drawable/read"
+                android:layout_alignTop="@+id/simpan_file"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:onClick="onClick"
+                android:clickable="true"/>
+            <View
+                android:layout_width="100dp"
+                android:layout_height="10dp"
+                android:id="@+id/spasi"
+                android:layout_toRightOf="@+id/lihat_file"></View>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/simpan_file"
+                android:src="@drawable/simpan"
+
+
+                android:layout_alignBottom="@+id/foto_penulis"
+                android:layout_toLeftOf="@+id/lihat_file"
+                android:layout_toStartOf="@+id/lihat_file"
+                android:layout_marginRight="30dp"
+                android:layout_marginEnd="30dp" />
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

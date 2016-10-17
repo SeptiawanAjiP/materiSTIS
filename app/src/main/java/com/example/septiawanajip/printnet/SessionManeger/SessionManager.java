@@ -2,6 +2,7 @@ package com.example.septiawanajip.printnet.SessionManeger;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.example.septiawanajip.printnet.Object.AtributeName;
 import com.example.septiawanajip.printnet.Object.User;
@@ -26,6 +27,47 @@ public class SessionManager {
     public void createSessionLogin (String nim,String nama){
         editor.putString(AtributeName.getNIM(),nim);
         editor.putString(AtributeName.getNAMA(),nama);
+        editor.commit();
+    }
+
+    public void setJurusan (String jurusan){
+        editor.putString(AtributeName.getJURUSAN(),jurusan);
+        editor.commit();
+    }
+
+    public String getJurusan(){
+        String jurusan = sharedPreferences.getString(AtributeName.getJURUSAN(),null);
+        return jurusan;
+    }
+
+    public void setTingkat (String tingkat){
+        editor.putString(AtributeName.getTINGKAT(),tingkat);
+        editor.commit();
+    }
+
+    public String getTingkat(){
+        String tingkat = sharedPreferences.getString(AtributeName.getTINGKAT(),null);
+        return tingkat;
+    }
+
+    public void setKelas(String kelas){
+        editor.putString(AtributeName.getKELAS(),kelas);
+        editor.commit();
+    }
+
+    public String getKelas(){
+        String kelas = sharedPreferences.getString(AtributeName.getKELAS(),null);
+        return kelas;
+    }
+
+    public String getPathFoto(){
+        String pathFoto = sharedPreferences.getString(AtributeName.getPathFoto(),null);
+        return pathFoto;
+    }
+
+    public void setPathFoto (String pathFoto){
+        editor.putString(AtributeName.getPathFoto(),pathFoto);
+        editor.commit();
     }
 
     public HashMap<String,String> getUserSession(){

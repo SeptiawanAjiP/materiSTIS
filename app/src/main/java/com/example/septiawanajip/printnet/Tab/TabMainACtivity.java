@@ -18,6 +18,7 @@ import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.example.septiawanajip.printnet.Object.AtributeName;
 import com.example.septiawanajip.printnet.R;
 import com.example.septiawanajip.printnet.ServerConfiguration.Template;
 import com.example.septiawanajip.printnet.Utils.MultiPartRequest;
@@ -34,9 +35,11 @@ public class TabMainACtivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private int[] tabIcons = {
-            R.drawable.tab_print,
-            R.drawable.list
+            R.drawable.user,
+            R.drawable.list,
+            R.drawable.save
     };
+
 
 
     @Override
@@ -54,6 +57,7 @@ public class TabMainACtivity extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+
         setupTabIcons();
 
     }
@@ -61,14 +65,15 @@ public class TabMainACtivity extends AppCompatActivity {
     private void setupTabIcons(){
         tabLayout.getTabAt(0).setIcon(tabIcons[0]);
         tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
     }
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new TwoFragment(), "Lihat Materi");
-        adapter.addFragment(new OneFragment(), "Upload Materi");
+        adapter.addFragment(new ProfilFragment(), "Profil");
+        adapter.addFragment(new TwoFragment(), "Matkul");
+        adapter.addFragment(new OneFragment(), "Tersimpan");
         viewPager.setAdapter(adapter);
-
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {

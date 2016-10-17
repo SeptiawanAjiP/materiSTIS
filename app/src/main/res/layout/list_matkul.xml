@@ -37,13 +37,15 @@
             </TextView>
 
             <TextView
-                android:id="@+id/tv_blah"
+                android:id="@+id/total_catatan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="12 Agustus 2016"
                 android:layout_alignParentBottom="true"
-                android:layout_alignLeft="@+id/tv_text"
-                android:layout_alignStart="@+id/tv_text">
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="69dp"
+                android:layout_marginEnd="69dp">
             </TextView>
 
         </RelativeLayout>

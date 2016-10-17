@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.makeramen.roundedimageview.RoundedImageView
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      android:id="@+id/foto_profil"
+      android:src="@drawable/boy"
+      android:layout_height="200dp"
+      android:layout_width="200dp"
+      app:riv_corner_radius="20dip"
+      app:riv_border_width="4dip"
+      app:riv_border_color="@color/colorPrimaryDark"
+      app:riv_mutate_background="true"
+      app:riv_tile_mode="repeat"
+      app:riv_oval="true"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="32dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Dimas Kanjeng"
+        android:id="@+id/nama_profil"
+        android:layout_below="@+id/kelas_profil"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Probolinggo"
+        android:id="@+id/kelas_profil"
+        android:layout_below="@+id/foto_profil"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp" />
+
+
+</RelativeLayout>
