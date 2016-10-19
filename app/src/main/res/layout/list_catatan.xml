@@ -94,6 +94,17 @@
                 android:layout_marginRight="30dp"
                 android:layout_marginEnd="30dp" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="234278"
+                android:textSize="15dp"
+                android:id="@+id/total_baca"
+                android:layout_alignTop="@+id/total_download"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>

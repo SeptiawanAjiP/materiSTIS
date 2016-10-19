@@ -13,6 +13,8 @@ public class MethodAPI {
     private static final String GET_DETAIL_CATATAN = "getDetailCatatan";
     private static final String INSERT_DOWNLOAD = "insertDownload";
     private static final String INSERT_MEMBACA = "insertMembaca";
+    private static final String UPDATE_DOWNLOAD = "updateDownload";
+    private static final String UPDATE_BACA = "updateBaca";
 
     public static String getGetStatusLogin() {
         return GET_STATUS_LOGIN;
@@ -48,5 +50,13 @@ public class MethodAPI {
 
     public static String getKODE() {
         return KODE;
+    }
+
+    public static String getUpdateDownload() {
+        return UPDATE_DOWNLOAD;
+    }
+
+    public static String getUpdateBaca() {
+        return UPDATE_BACA;
     }
 }

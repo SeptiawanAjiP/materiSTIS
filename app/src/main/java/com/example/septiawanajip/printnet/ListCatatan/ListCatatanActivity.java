@@ -1,6 +1,5 @@
 package com.example.septiawanajip.printnet.ListCatatan;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Typeface;
@@ -9,42 +8,28 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.septiawanajip.printnet.Object.AtributeName;
 import com.example.septiawanajip.printnet.Object.Catatan;
-import com.example.septiawanajip.printnet.Object.Matkul;
 import com.example.septiawanajip.printnet.R;
 import com.example.septiawanajip.printnet.ServerConfiguration.ConvertParameter;
 import com.example.septiawanajip.printnet.ServerConfiguration.EndpointAPI;
 import com.example.septiawanajip.printnet.ServerConfiguration.JSONParser;
 import com.example.septiawanajip.printnet.ServerConfiguration.MethodAPI;
 import com.example.septiawanajip.printnet.ServerConfiguration.ResponServer;
-import com.example.septiawanajip.printnet.SessionManeger.SessionManager;
-import com.example.septiawanajip.printnet.Tab.AdapterListView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * Created by Septiawan Aji P on 10/17/2016.
  */
-public class ListCatatanActivity extends AppCompatActivity {
+public class ListCatatanActivity extends AppCompatActivity  {
     private ProgressDialog pDialog;
     public static final int progress_bar_type = 0;
     String idMatkul;
@@ -105,6 +90,7 @@ public class ListCatatanActivity extends AppCompatActivity {
                     catatan.setDownload(c.getString(AtributeName.getDOWNLOAD()));
                     catatan.setNama(c.getString(AtributeName.getNAMA()));
                     catatan.setPath_foto(c.getString(AtributeName.getPathFoto()));
+                    catatan.setBaca(c.getString(AtributeName.getBACA()));
 
                     catatanAtribut.add(catatan.getIdCatatan());
                     catatanAtribut.add(catatan.getFileSize());
@@ -112,6 +98,7 @@ public class ListCatatanActivity extends AppCompatActivity {
                     catatanAtribut.add(catatan.getDownload());
                     catatanAtribut.add(catatan.getNama());
                     catatanAtribut.add(catatan.getPath_foto());
+                    catatanAtribut.add(catatan.getBaca());
 
                     arrayList.add(catatanAtribut);
                     Log.d("yes",Integer.toString(arrayList.size()));
@@ -130,7 +117,7 @@ public class ListCatatanActivity extends AppCompatActivity {
             super.onPostExecute(s);
             Typeface type = Typeface.createFromAsset(getAssets(),"fonts/Gaitera_Ball-demo-FFP.ttf");
 
-            AdapterCatatan adapterCatatan= new AdapterCatatan(getApplicationContext(),R.layout.catatan_list, arrayList,type);
+            AdapterCatatan adapterCatatan= new AdapterCatatan(getApplicationContext(),R.layout.catatan_list,namaMatkul, arrayList,type);
             lv.setAdapter(adapterCatatan);
         }
     }

@@ -18,7 +18,7 @@ public class WebViewActivity extends Activity {
         pdfWebView = (WebView)findViewById(R.id.materi);
         pdfWebView.getSettings().setJavaScriptEnabled(true);
 //        String pdf = "http://www.adobe.com/devnet/acrobat/pdfs/pdf_open_parameters.pdf";
-        String pdf = "http://iyasayang.esy.es/ab.pdf";
+        String pdf = getIntent().getStringExtra("filePath");
         pdfWebView.loadUrl("http://drive.google.com/viewerng/viewer?embedded=true&url=" + pdf);
 
     }

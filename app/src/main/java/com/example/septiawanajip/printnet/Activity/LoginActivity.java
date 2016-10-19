@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         daftarTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(LoginActivity.this, "Melakukan Daftar", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Daftar di kemon.komputasi.net ", Toast.LENGTH_SHORT).show();
             }
         });
 

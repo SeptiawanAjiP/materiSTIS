@@ -1,6 +1,8 @@
 package com.example.septiawanajip.printnet.Tab;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
@@ -32,6 +34,7 @@ import com.example.septiawanajip.printnet.Utils.StringParser;
 import com.example.septiawanajip.printnet.Utils.VolleySingleton;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * Created by Septiawan Aji P on 10/13/2016.
@@ -69,16 +72,27 @@ public class OneFragment extends Fragment {
         mAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((TextView) v).getText().equals("Delete")){
-                    resetView();
-                }else{
-                    Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                    intent.setType("pdf/* docs/*");
-                    startActivityForResult(intent, Template.Code.FILE_MANAGER_CODE);
-                }
-
+                File file = new File("/sdcard/Komnet/ab.pdf");
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(Uri.fromFile(file),"application/pdf");
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
             }
         });
+
+//        mAdd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (((TextView) v).getText().equals("Delete")){
+//                    resetView();
+//                }else{
+//                    Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+//                    intent.setType("pdf/* docs/*");
+//                    startActivityForResult(intent, Template.Code.FILE_MANAGER_CODE);
+//                }
+//
+//            }
+//        });
 
         mUpload.setOnClickListener(new View.OnClickListener() {
             @Override

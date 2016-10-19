@@ -76,4 +76,8 @@ public class SessionManager {
         hm.put(AtributeName.getNAMA(),sharedPreferences.getString(AtributeName.getNAMA(),null));
         return hm;
     }
+
+    public void deleteSession (){
+        sharedPreferences.edit().clear().commit();
+    }
 }

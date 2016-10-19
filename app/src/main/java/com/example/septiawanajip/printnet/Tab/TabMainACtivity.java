@@ -1,8 +1,10 @@
 package com.example.septiawanajip.printnet.Tab;
 
 
+import android.content.Intent;
+import android.content.pm.PackageInstaller;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import android.provider.ContactsContract;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,19 +12,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.view.Menu;
+import android.view.MenuItem;
 
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.example.septiawanajip.printnet.Object.AtributeName;
+import com.example.septiawanajip.printnet.Activity.SplashScreen;
+import com.example.septiawanajip.printnet.Database.DatabaseHandler;
 import com.example.septiawanajip.printnet.R;
-import com.example.septiawanajip.printnet.ServerConfiguration.Template;
-import com.example.septiawanajip.printnet.Utils.MultiPartRequest;
-import com.example.septiawanajip.printnet.Utils.VolleySingleton;
+import com.example.septiawanajip.printnet.SessionManeger.SessionManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,12 +36,16 @@ public class TabMainACtivity extends AppCompatActivity {
             R.drawable.save
     };
 
-
+    SessionManager sm ;
+    DatabaseHandler db ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab_activity_main);
+
+        sm = new SessionManager(getApplicationContext());
+        db = new DatabaseHandler(getApplicationContext());
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -71,8 +71,8 @@ public class TabMainACtivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new ProfilFragment(), "Profil");
-        adapter.addFragment(new TwoFragment(), "Matkul");
-        adapter.addFragment(new OneFragment(), "Tersimpan");
+        adapter.addFragment(new MatkulFragment(), "Matkul");
+        adapter.addFragment(new TersimpanFragment(), "Tersimpan");
         viewPager.setAdapter(adapter);
     }
 
@@ -104,5 +104,30 @@ public class TabMainACtivity extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if(id==R.id.action_setting_logout){
+            sm.deleteSession();
+            db.deleteCatatan();
+            Intent intent = new Intent(getApplicationContext(),SplashScreen.class);
+            startActivity(intent);
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
+
+    }
+
+
 
 }

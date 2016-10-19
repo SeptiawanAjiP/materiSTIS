@@ -1,28 +1,19 @@
 package com.example.septiawanajip.printnet.Tab;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.septiawanajip.printnet.Activity.MainActivity;
 import com.example.septiawanajip.printnet.Object.AtributeName;
 import com.example.septiawanajip.printnet.Object.Matkul;
 import com.example.septiawanajip.printnet.R;
@@ -42,9 +33,9 @@ import java.util.HashMap;
 /**
  * Created by Septiawan Aji P on 10/13/2016.
  */
-public class TwoFragment extends Fragment {
+public class MatkulFragment extends Fragment {
     private ImageView mulaiPrint;
-    public TwoFragment(){
+    public MatkulFragment(){
 
     }
 
@@ -142,8 +133,8 @@ public class TwoFragment extends Fragment {
             Typeface type = Typeface.createFromAsset(getActivity().getAssets(),"fonts/Gaitera_Ball-demo-FFP.ttf");
 
             ListView lv = (ListView)getView().findViewById(R.id.list_view_matkul);
-            AdapterListView adapterListView = new AdapterListView(getContext(),R.layout.list_matkul,arrayList,type);
-            lv.setAdapter(adapterListView);
+            AdapterMatkul adapterMatkul = new AdapterMatkul(getContext(),R.layout.list_matkul,arrayList,type);
+            lv.setAdapter(adapterMatkul);
 
 
 //            pDialog.dismiss();

@@ -10,6 +10,8 @@ public class Catatan {
     private String download;
     private String path_foto;
     private String nama;
+    private String baca;
+    private String namaMatkul;
 
     public String getIdCatatan() {
         return idCatatan;
@@ -57,5 +59,21 @@ public class Catatan {
 
     public void setNama(String nama) {
         this.nama = nama;
+    }
+
+    public String getBaca() {
+        return baca;
+    }
+
+    public void setBaca(String baca) {
+        this.baca = baca;
+    }
+
+    public String getNamaMatkul() {
+        return namaMatkul;
+    }
+
+    public void setNamaMatkul(String namaMatkul) {
+        this.namaMatkul = namaMatkul;
     }
 }

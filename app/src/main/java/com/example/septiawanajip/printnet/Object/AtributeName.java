@@ -24,6 +24,7 @@ public class AtributeName {
     private static final String FILE_SIZE = "file_size";
     private static final String PATH_FILE = "path_file";
     private static final String DOWNLOAD = "download";
+    private static final String BACA = "baca";
 
 
     public static String getSESSION() {
@@ -84,5 +85,9 @@ public class AtributeName {
 
     public static String getDOWNLOAD() {
         return DOWNLOAD;
+    }
+
+    public static String getBACA() {
+        return BACA;
     }
 }

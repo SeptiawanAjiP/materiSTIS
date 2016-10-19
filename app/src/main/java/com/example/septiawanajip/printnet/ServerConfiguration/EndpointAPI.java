@@ -6,5 +6,5 @@ package com.example.septiawanajip.printnet.ServerConfiguration;
 public interface EndpointAPI {
     //Lokasi file upload_file.php diserver
     String upload_file =   "http://192.168.1.100/kemon/upload_file.php";
-    String serverCRUD = "http://192.168.1.101/kemon/koneksi.php?";
+    String serverCRUD = "http://komputasi.net/kemon_learning/koneksi.php?";
 }
